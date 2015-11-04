@@ -261,7 +261,7 @@ function ping()
 # Function : Disk space  (top 5)
 function disk_space()
 {
-    HDD_TOP=`df -h | head -1 | sed s/^/"  "/`
+    HDD_TOP=`df -hl | grep -iv "^Filesystem|Sys." | grep -vE "^tmpfs|udev" | head -1 | sed s/^/"  "/`
     #HDD_DATA=`df -hl | grep -v "^Filesystem" | grep -v "^Sys. de fich." | sort -k5r | head -5 | sed s/^/"  "/`
     # HDD_DATA=`df -hl | sed "1 d" | grep -v "^Filesystem" | grep -v "^Sys. de fich." | sort | head -5 | sed s/^/"  "/`
  
